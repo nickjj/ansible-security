@@ -1,0 +1,18 @@
+---
+galaxy_info:
+  author: Nick Janetakis
+  description: Configure ssh and ufw as well as install fail2ban.
+  company: 
+  license: license (MIT)
+  min_ansible_version: 1.6
+
+  platforms:
+  - name: Ubuntu
+    versions:
+    - all
+
+  categories:
+  - system
+  - networking
+
+dependencies: []

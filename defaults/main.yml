@@ -1,0 +1,6 @@
+---
+security_ufw_state: enabled
+security_ufw_ports:
+  - rule: allow
+    port: 80
+    proto: tcp
