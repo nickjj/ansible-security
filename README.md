@@ -10,7 +10,7 @@ First off we will adjust the ssh config by disabling password based logins and a
 
 Next up will be to enable and configure ufw to only expose the ports you want open. It is setup so that you can enable, disable or reset ufw by simply setting a single variable. Then you can feed it a custom list of rules to dictate which ports/protocol should be open or closed.
 
-Lastly it installs [fail2ban](http://www.fail2ban.org/wiki/index.php/Main_Page) which is one of the best tools you can hope for when it comes to rate limiting login attempts and intelligently detecting questionable activity without really knowing what you're doing (this is why I use it!).
+Lastly it installs [fail2ban](http://www.fail2ban.org/wiki/index.php/Main_Page) which is one of the best tools when it comes to rate limiting login attempts and intelligently detecting questionable activity without really knowing what you're doing (this is why I use it!).
 
 #### Why is the ssh port still 22?
 
@@ -29,7 +29,7 @@ security_ufw_ports:
 
 ## Example playbook
 
-For the sake of this example let's assume you have a bunch of different groups and you have a typical `site.yml` file.
+For the sake of this example let's assume you have a few groups and you have a typical `site.yml` file.
 
 To use this role edit your `site.yml` file to look something like this:
 
@@ -57,7 +57,7 @@ To use this role edit your `site.yml` file to look something like this:
     # add your roles here
 ```
 
-You can set different ufw rules for each group by just running the security role on each group. The reason we don't need to specify the `security_ufw_ports` variable in the **app** group is because it defaults to port 80 being open.
+You can set different ufw rules for each group by running the security role on each group. The reason we don't need to specify the `security_ufw_ports` variable in the **app** group is due to port 80 being open by default.
 
 Also, let's say you want to edit the default state, you can do this by opening or creating `group_vars/all.yml` which is located relative to your `inventory` directory and then making it look something like this:
 
