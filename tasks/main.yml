@@ -18,7 +18,7 @@
   when: '"enabled" in ufw_state.invocation.module_args'
 
 - name: ensure fail2ban is installed
-  apt: pkg=fail2ban state=latest update_cache=true cache_valid_time=86400
+  apt: pkg=fail2ban state=latest update_cache=true cache_valid_time={{ apt_cache_valid_time }}
   notify:
   - restart fail2ban
 

@@ -25,6 +25,9 @@ security_ufw_ports:
   - rule: allow             # allow or deny
     port: 80                # any port
     proto: tcp              # tcp or udp
+
+# The amount in seconds to cache apt-update.
+apt_cache_valid_time: 86400
 ```
 
 ## Example playbook
