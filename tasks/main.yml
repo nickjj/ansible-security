@@ -20,7 +20,7 @@
     - restart ssh
 
 - name: ensure ufw always allows ssh
-  ufw: rule=allow port=ssh proto=any state=reloaded
+  ufw: rule=allow name=OpenSSH
 
 - name: ensure ufw is enabled, disabled or reset
   ufw: state={{ security_ufw_state }}
