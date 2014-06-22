@@ -31,12 +31,12 @@
   when: ufw_ipv6.changed
 
 - name: detect ufw state
-  command: ufw state
-  register: ufw_state
+  command: ufw status
+  register: status
 
 - name: ensure ufw is enabled/reset when ufw is not inactive or disabled
   command: yes | ufw {{ security_ufw_state }}
-  when: not 'inactive' in ufw_state.stdout and security_ufw_state != 'disable'
+  when: not 'inactive' in status.stdout and security_ufw_state != 'disable'
 
 - name: ensure ufw is disabled when it is set to be disabled
   ufw: state=disabled
@@ -45,7 +45,7 @@
 - name: ensure ufw is configured
   ufw: rule={{ item.rule }} port={{ item.port }} proto={{ item.proto }} state=reloaded
   with_items: security_ufw_ports
-  when: '"enabled" in ufw_state.invocation.module_args'
+  when: '"enabled" in status.invocation.module_args'
 
 - name: ensure fail2ban is installed
   apt: pkg=fail2ban state=latest update_cache=true cache_valid_time={{ apt_cache_valid_time }}
