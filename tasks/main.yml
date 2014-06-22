@@ -26,10 +26,6 @@
   ufw: state={{ security_ufw_state }}
   register: ufw_state
 
-- name: ensure ufw always allows an ssh connection
-  ufw: rule=allow port=ssh proto=tcp state=reloaded
-  when: '"disabled" not in ufw_state.invocation.module_args'
-
 - name: ensure ufw is configured
   ufw: rule={{ item.rule }} port={{ item.port }} proto={{ item.proto }} state=reloaded
   with_items: security_ufw_ports
