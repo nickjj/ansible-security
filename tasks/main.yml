@@ -19,8 +19,20 @@
   notify:
     - restart ssh
 
+- name: ensure ufw is configured
+  template: src=ufw_config.j2 dest=/etc/default/ufw owner=root group=root mode=0644
+  register: ufw_ipv6
+
 - name: ensure ufw always allows ssh
   ufw: rule=allow port=ssh proto=tcp
+
+- name: ensure ufw is disabled when ipv6 is changed
+  ufw: state=disabled
+  when: ufw_ipv6.changed
+
+- name: ensure ufw is enabled when ipv6 is changed
+  ufw: state=enabled
+  when: security_ufw_state != 'diabled' and ufw_ipv6.changed
 
 - name: ensure ufw is enabled, disabled or reset
   ufw: state={{ security_ufw_state }}

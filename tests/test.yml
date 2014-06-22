@@ -3,5 +3,8 @@
   remote_user: travis
   sudo: true
 
+  vars:
+    security_ipv6: no
+
   roles:
     - ansible-security
