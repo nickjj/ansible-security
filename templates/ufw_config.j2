@@ -47,4 +47,6 @@ IPT_SYSCTL=/etc/ufw/sysctl.conf
 # nf_conntrack_pptp, nf_nat_pptp: PPTP over stateful firewall/NAT
 # nf_conntrack_ftp, nf_nat_ftp: active FTP support
 # nf_conntrack_tftp, nf_nat_tftp: TFTP support (server side)
+{% if security_ipv6 == 'yes' %}
 IPT_MODULES="nf_conntrack_ftp nf_nat_ftp nf_conntrack_netbios_ns"
+{% endif %}

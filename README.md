@@ -21,7 +21,7 @@ It is just too much of a hassle to change it with ansible and while it may reduc
 ```
 ---
 # Do you want to support ipv6?
-# If you change this to 'no' then you must disable/enable the firewall
+# You may want to change this to 'no' if you have issues with ufw-init when using OpenVZ VM
 security_ipv6: yes
 
 # Values can be: enabled, disabled or reset

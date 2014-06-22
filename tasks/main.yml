@@ -32,7 +32,7 @@
 
 - name: ensure ufw is enabled when ipv6 is changed
   ufw: state=enabled
-  when: security_ufw_state != 'diabled' and ufw_ipv6.changed
+  when: security_ufw_state != 'disabled' and ufw_ipv6.changed
 
 - name: ensure ufw is enabled, disabled or reset
   ufw: state={{ security_ufw_state }}
