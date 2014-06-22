@@ -1,12 +1,18 @@
 ---
-- name: ensure ssh, ufw and fail2ban are installed
-  apt: pkg={{ item.pkg }} state=latest update_cache=true cache_valid_time={{ apt_cache_valid_time }}
+- name: ensure ssh is installed
+  apt: pkg=openssh-server state=latest update_cache=true cache_valid_time={{ apt_cache_valid_time }}
   notify:
-    - restart {{ item.service }}
-  with_items:
-    - { pkg: openssh-server, service: ssh }
-    - { pkg: ufw, service: ufw }
-    - { pkg: fail2ban, service: fail2ban }
+    - restart ssh
+
+- name: ensure ufw is installed
+  apt: pkg=ufw state=latest update_cache=true cache_valid_time={{ apt_cache_valid_time }}
+  notify:
+    - restart ufw
+
+- name: ensure fail2ban is installed
+  apt: pkg=fail2ban state=latest update_cache=true cache_valid_time={{ apt_cache_valid_time }}
+  notify:
+    - restart fail2ban
 
 - name: ensure ssh is configured
   template: src=sshd_config.j2 dest=/etc/ssh/sshd_config owner=root group=root mode=0644
