@@ -21,7 +21,7 @@
 
 - name: ensure ufw always allows ssh
   ufw: rule=allow port=ssh proto=tcp state=reloaded
-  when: security_ufw_state != '"disabled"
+  when: security_ufw_state != "disabled"
 
 - name: ensure ufw is enabled, disabled or reset
   ufw: state={{ security_ufw_state }}
