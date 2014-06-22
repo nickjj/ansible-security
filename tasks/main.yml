@@ -19,6 +19,10 @@
   notify:
     - restart ssh
 
+- name: ensure ufw always allows ssh
+  ufw: rule=allow port=ssh proto=tcp state=reloaded
+  when: not '"disabled" in ufw_state.invocation.module_args'
+
 - name: ensure ufw is enabled, disabled or reset
   ufw: state={{ security_ufw_state }}
   register: ufw_state
