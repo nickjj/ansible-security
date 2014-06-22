@@ -1,4 +1,4 @@
-## What is ansible-security?
+## What is ansible-security? [![Build Status](https://secure.travis-ci.org/nickjj/ansible-security.png)](http://travis-ci.org/nickjj/ansible-security)
 
 It is an [ansible](http://www.ansible.com/home) role to configure ssh, ufw and install fail2ban.
 
