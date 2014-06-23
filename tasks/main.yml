@@ -30,17 +30,13 @@
   ufw: state=disabled
   when: ufw_ipv6.changed
 
-- name: detect ufw state
-  command: ufw status
-  register: ufw_status
+- name: ensure ufw is enabled/reset when it is not disabled
+  shell: yes | ufw {{ security_ufw_state }}
+  when: security_ufw_state != 'disable'
 
-- name: ensure ufw is enabled/reset when ufw is not inactive or disabled
-  command: yes | ufw {{ security_ufw_state }}
-  when: not 'inactive' in ufw_status.stdout and security_ufw_state != 'disable'
-
-- name: ensure ufw is disabled when it is set to be disabled
+- name: ensure ufw is disabled when it is disabled
   ufw: state=disabled
-  when: security_ufw_state == 'disabled'
+  when: security_ufw_state == 'disable'
 
 - name: ensure ufw is configured
   ufw: rule={{ item.rule }} port={{ item.port }} proto={{ item.proto }} state=reloaded
