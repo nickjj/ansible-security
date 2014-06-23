@@ -1,6 +1,6 @@
 ---
 security_ipv6: yes
-security_ufw_state: enable
+security_ufw_state: enabled
 security_ufw_ports:
   - rule: allow
     port: 80
