@@ -3,8 +3,8 @@
 It has been broken up into 3 roles and ufw was replaced with ferm. You can find the new roles here:
 
 - `nickjj.sshd` https://github.com/nickjj/ansible-sshd [![Build Status](https://secure.travis-ci.org/nickjj/ansible-sshd.png)](http://travis-ci.org/nickjj/ansible-sshd)
-- `nickjj.ferm` https://github.com/nickjj/ansible-ferm [![Build Status](https://secure.travis-ci.org/nickjj/ansible-ferm.png)](http://travis-ci.org/nickjj/ansible-fail2ban)
-- `nickjj.nginx` https://github.com/nickjj/ansible-fail2ban [![Build Status](https://secure.travis-ci.org/nickjj/ansible-fail2ban.png)](http://travis-ci.org/nickjj/ansible-fail2ban)
+- `nickjj.ferm` https://github.com/nickjj/ansible-ferm [![Build Status](https://secure.travis-ci.org/nickjj/ansible-ferm.png)](http://travis-ci.org/nickjj/ansible-ferm)
+- `nickjj.fail2ban` https://github.com/nickjj/ansible-fail2ban [![Build Status](https://secure.travis-ci.org/nickjj/ansible-fail2ban.png)](http://travis-ci.org/nickjj/ansible-fail2ban)
 
 ## What is ansible-security? [![Build Status](https://secure.travis-ci.org/nickjj/ansible-security.png)](http://travis-ci.org/nickjj/ansible-security)
 
