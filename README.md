@@ -1,3 +1,12 @@
+## WARNING: This role will be deprecated very soon
+
+All of the functionality provided by this role and more is available in the [DebOps project](http://debops.org). If you are using some of my roles in conjunction with each other, you will find the move to DebOps most pleasurable.
+
+This role will be **removed** from the **galaxy** and from **github** anywhere from 42 microseconds to 2-3 weeks after you read this message.
+
+---
+
+
 # This role is no longer maintained
 
 It has been broken up into 3 roles and ufw was replaced with ferm. You can find the new roles here:
